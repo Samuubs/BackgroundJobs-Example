@@ -16,6 +16,7 @@
     "react": "16.9.0",
     "react-native": "0.61.5",
     "react-native-background-fetch": "^3.0.4",
+    "react-native-background-timer": "^2.2.0",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
     "redux-offline-queue": "^1.0.7",

@@ -14,7 +14,8 @@ export function* startWatchingNetworkConnectivity() {
 
   try {
     for (;;) {
-      const result = yield take(channel); 
+      const result = yield take(channel);
+      console.log(result.isConnected) 
       if (result.isConnected) {
         yield put({ type: ONLINE });
       } else {

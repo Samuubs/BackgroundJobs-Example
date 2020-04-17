@@ -1,7 +1,8 @@
-import { put, all, takeEvery, call, fork, takeLatest } from 'redux-saga/effects'
+import { put, all, takeEvery, call, fork, takeLatest, spawn } from 'redux-saga/effects'
 import * as actionTypes from '../actions/types';
 import api from '../service/api';
 import {startWatchingNetworkConnectivity} from './offline'
+import { TaskTest } from './task'
  
 function* handleAddUser(action) {
     console.log("sagaa")
@@ -16,8 +17,9 @@ function* handleAddUser(action) {
 
 function* rootSaga() {
     yield all([
+        yield spawn(TaskTest),
         yield fork(startWatchingNetworkConnectivity),
-        yield takeEvery(actionTypes.ADD_USER, handleAddUser)
+        yield takeEvery(actionTypes.ADD_USER, handleAddUser), 
     ])
 }
 
